@@ -1,22 +1,3 @@
-# a-frame-webpack-boilerplate
-Minimalist boilerplate for A-Frame 1.3.0 and Webpack 5
-
-Create a folder for your project and :
-
-### Clone, fork or download
-**clone**:
-```sh
-git clone https://github.com/Chabloz/a-frame-webpack-boilerplate.git .
-```
-### Install
-```sh
-npm install
-```
-### Dev
-```sh
-npm run dev
-```
-### Build
-```sh
-npm run build
-```
+# PB-Turfu
+Student project by 3rd year Media Engineering students at HEIG-VD.
+The Photobooth of the Future, a project for the [Swiss Camera Museum][https://www.cameramuseum.ch/en/] in Vevey.
