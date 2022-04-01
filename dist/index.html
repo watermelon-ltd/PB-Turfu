@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>PB-Turfu</title>
+    <title>PB-Turfu</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+
     <script src="bundle.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene stats mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/band-example/band.mind; maxTrack: 5" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+        <a-asset-item id="lightsaber-asset" src="assets/anakin_skywalkers_lightsaber/scene.gltf"></a-asset-item>
+        <a-asset-item id="shield-asset" src="assets/captain_america_-_shield/scene.gltf"></a-asset-item>
 
+        <a-asset-item id="bearModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
+        <a-asset-item id="raccoonModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/band-example/raccoon/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <div id="container" style="visibility: hidden;">
+        <video style="opacity: 0;" autoplay="true" id="videoElement">
+        </video>
+      </div>
+
+      <a-sky src="assets/skybox/skybox.jpg" rotation="0 0 0"></a-sky>
+
+      <a-plane material="shader: chromakey; src: #videoElement; color: 0.1 0.9 0.2" 
+          position="0 1 -40"
+          scale="-15 15 15"
+          geometry="primitive:  plane;  height:  1.69;  width:  1.69">
+      </a-plane>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity id="" mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#raccoonModel" animation-mixer></a-gltf-model>
+      </a-entity>
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel" animation-mixer></a-gltf-model>
+      </a-entity>
+
+      <!-- <a-entity mindar-image-target="targetIndex: 0">
+        <a-entity gltf-model="#lightsaber-asset" scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0"></a-entity>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-entity gltf-model="#shield-asset" scale="0.03 0.03 0.03" position="0 0 0" rotation="0 0 0"></a-entity>
+      </a-entity> -->
     </a-scene>
+
+    <script>
+      let video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+          navigator.mediaDevices.getUserMedia({
+                  video: true
+              })
+              .then(function (stream) {
+                  video.srcObject = stream;
+              })
+              .catch(function (err0r) {
+                  console.log("Something went wrong!");
+              });
+      }
+     </script>
+
   </body>
 </html>
