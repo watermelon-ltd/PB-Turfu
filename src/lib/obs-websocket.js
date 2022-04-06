@@ -1,7 +1,6 @@
 import OBSWebSocket from 'obs-websocket-js';
 
 const obs = new OBSWebSocket();
-       console.log("hallo");
  
     //    document.getElementById('address_button').addEventListener('click', e => {
     //      const address = document.getElementById('address').value;
@@ -14,8 +13,8 @@ const obs = new OBSWebSocket();
 
 
        obs.on('ConnectionOpened', () => {
-           console.log("CONNECTED");
-         obs.send('GetSceneList').then(data => {
+
+        obs.send('GetSceneList').then(data => {
            const sceneListDiv = document.getElementById('scene_list');
  
            data.scenes.forEach(scene => {
