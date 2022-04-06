@@ -4,3 +4,5 @@ function importAll(r) {
   }
   
   importAll(require.context('./components', false, /\.js$/));
+
+  import './lib/obs-websocket';
