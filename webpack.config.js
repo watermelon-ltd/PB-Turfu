@@ -8,6 +8,14 @@ const config = {
     path: path.resolve(__dirname, 'dist')
   },
   watch: false,
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
   resolve: {
     modules: [
       path.resolve('./src'),
