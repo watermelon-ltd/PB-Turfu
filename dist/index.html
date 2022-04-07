@@ -29,15 +29,27 @@
   </div>
 
 
-  <a-scene Xstats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 5" color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+  <a-scene stats 
+    mindar-image="imageTargetSrc: assets/targetsTEST.mind; maxTrack: 10" 
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
-
-
+      <a-asset-item id="bearModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
+      <a-asset-item id="raccoonModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/examples/image-tracking/assets/band-example/raccoon/scene.gltf"></a-asset-item>
     </a-assets>
 
-    <a-entity id="target0" mindar-image-target="targetIndex: 0" change-background="skyboxImg: assets/skybox/port.jpg;">
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#raccoonModel" animation-mixer></a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel" animation-mixer></a-gltf-model>
+    </a-entity>
+
+
+    <!-- <a-entity id="target0" mindar-image-target="targetIndex: 0" change-background="skyboxImg: assets/skybox/port.jpg;">
       <a-box id="box0" scale="1 1 1" material="color: red;"></a-box>
     </a-entity>
 
@@ -46,29 +58,26 @@
       <a-box id="box1" scale="1 1 1" material="color: blue;"></a-box>
     </a-entity>
 
-
+    <a-entity id="target3" mindar-image-target="targetIndex: 3">
+      <a-box id="box3"
+      scale="1 1 1"
+      material="color: white;"></a-box>
+    </a-entity>
+    
+    <a-entity id="target4" mindar-image-target="targetIndex: 4">
+      <a-box id="box4"
+      scale="1 1 1"
+      material="color: black;"></a-box>
+    </a-entity>
+    
+    <a-entity id="target5" mindar-image-target="targetIndex: 5">
+      <a-box id="box5"
+      scale="1 1 1"
+      material="color: yellow;"></a-box>
+    </a-entity> -->
+    
+    
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-
-      <a-entity id="target3" mindar-image-target="targetIndex: 3">
-        <a-box id="box3"
-        scale="1 1 1"
-        material="color: white;"></a-box>
-      </a-entity>
-
-      <a-entity id="target4" mindar-image-target="targetIndex: 4">
-        <a-box id="box4"
-        scale="1 1 1"
-        material="color: black;"></a-box>
-      </a-entity>
-
-      <a-entity id="target5" mindar-image-target="targetIndex: 5">
-        <a-box id="box5"
-        scale="1 1 1"
-        material="color: yellow;"></a-box>
-      </a-entity>
-
-
 
   </a-scene>
 
