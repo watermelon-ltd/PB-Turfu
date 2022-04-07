@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>PB-Turfu</title>    
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8"/>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
 
-    <script src="bundle.js"></script>
-  </head>
-  <body>
+<head>
+  <title>PB-Turfu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+</head>
 
-    <div style="position: absolute; z-index: 10">
-      <h1>Scene List</h1>
-      <div id="scene_list"></div>
+<body>
+
+  <div style="position: absolute;  z-index: 9999">
+    <h1>Scene List</h1>
+    <div id="scene_list"></div>
+    <div class="menu">
+      <button id="snap-button">Snap</button>
+      <button id="clear-button" style="z-index: 9999;">Clear</button>
     </div>
+  </div>
+
+  <div style="position: absolute; z-index: 10;">
+    <video id="capture-stream" style="visibility: hidden; position: absolute; top: 0%; left: 0%;">Stream Unavailable</video>
+      <canvas id="capture-canvas" style="position: absolute; top: 0%; left: 0%;">
+        <img id="capture-photo" alt="Please make a screen capture">
+      </canvas>
+  </div>
 
 
-    <a-scene Xstats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 5" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
+  <a-scene Xstats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 5" color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-assets>
 
-      </a-assets>
 
-      <a-entity id="target0" mindar-image-target="targetIndex: 0" change-background="skyboxImg: assets/skybox/port.jpg;">
-        <a-box id="box0"
-        scale="1 1 1"
-        material="color: red;"></a-box>
-      </a-entity>
-      
-      <a-entity id="target1" mindar-image-target="targetIndex: 1" change-background="skyboxImg: assets/skybox/skybox.jpg;">
-        <a-box id="box1"
-        scale="1 1 1"
-        material="color: blue;"></a-box>
-      </a-entity>
+    </a-assets>
+
+    <a-entity id="target0" mindar-image-target="targetIndex: 0" change-background="skyboxImg: assets/skybox/port.jpg;">
+      <a-box id="box0" scale="1 1 1" material="color: red;"></a-box>
+    </a-entity>
+
+    <a-entity id="target1" mindar-image-target="targetIndex: 1"
+      change-background="skyboxImg: assets/skybox/skybox.jpg;">
+      <a-box id="box1" scale="1 1 1" material="color: blue;"></a-box>
+    </a-entity>
+
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
 
       <a-entity id="target3" mindar-image-target="targetIndex: 3">
         <a-box id="box3"
@@ -54,14 +69,11 @@
       </a-entity>
 
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      
+  </a-scene>
 
-     
-    </a-scene>
 
-   
+  <script src="bundle.js"></script>
+</body>
 
-  </body>
 </html>
