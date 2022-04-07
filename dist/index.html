@@ -11,7 +11,7 @@
     <script src="bundle.js"></script>
   </head>
   <body>
-    
+
     <div style="position: absolute; z-index: 10">
       <h1>Scene List</h1>
       <div id="scene_list"></div>
@@ -20,7 +20,6 @@
 
     <a-scene Xstats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 5" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-       
 
       </a-assets>
 
@@ -34,6 +33,24 @@
         <a-box id="box1"
         scale="1 1 1"
         material="color: blue;"></a-box>
+      </a-entity>
+
+      <a-entity id="target3" mindar-image-target="targetIndex: 3">
+        <a-box id="box3"
+        scale="1 1 1"
+        material="color: white;"></a-box>
+      </a-entity>
+
+      <a-entity id="target4" mindar-image-target="targetIndex: 4">
+        <a-box id="box4"
+        scale="1 1 1"
+        material="color: black;"></a-box>
+      </a-entity>
+
+      <a-entity id="target5" mindar-image-target="targetIndex: 5">
+        <a-box id="box5"
+        scale="1 1 1"
+        material="color: yellow;"></a-box>
       </a-entity>
 
 
