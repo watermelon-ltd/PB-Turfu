@@ -4,6 +4,6 @@
 
 // importAll(require.context('./components', false, /\.js$/));
 
-import './lib/obs-websocket';
+// import './lib/obs-websocket';
 import './lib/screen-capture';
 import './lib/menu.js';

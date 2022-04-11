@@ -1,9 +1,30 @@
 import Glide from '@glidejs/glide';
 import 'css/style.css';
+import OBSWebSocket from 'obs-websocket-js';
 
-let observer = new MutationObserver( (evt) => {
-    console.log(evt);
-})
+const obs = new OBSWebSocket();
+const scenes = [
+    "Scene 1",
+    "Scene 2",
+    "Scene 3",
+    "Scene 4",
+    "Scene 5",
+    "Scene 6",
+    "Scene 7"
+]
+
+obs.connect({
+    address: 'localhost:4444/'
+    });
+
+obs.on('ConnectionOpened', () => {
+    carousel.on(['mount.after', 'run.after'], () => {
+        buttonActive(carousel.index);
+        obs.send('SetCurrentScene', {
+            'scene-name': scenes[carousel.index]
+        })
+    });
+});
 
 let carousel = new Glide('.glide', {
     type: 'carousel',
@@ -11,12 +32,6 @@ let carousel = new Glide('.glide', {
     perView: 5,
     focusAt: 2,
     gap: 50,
-});
-
-carousel.on(['mount.after', 'run.after'], () => {
-    buttonInactive();
-    buttonActive(carousel.index);
-    // resizeInactive();
 });
 
 carousel.mount();
