@@ -1,3 +1,73 @@
-h1 {
-    color: red;
+@import './glide.core.css';
+@import './glide.theme.css';
+
+
+.active-menu {
+    position: absolute;
+    z-index: 9999;
+    top: 80%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 20%;
 }
+
+.inactive-menu {
+    position: absolute;
+    z-index: 9999;
+    top: 80%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 20%;
+}
+
+.capture-preview {
+    z-index: 9999;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#camera-timer {
+    font-size: xx-large;
+    color: white;
+}
+
+.glide {
+    background-color: aqua;
+    height: 5%;
+}
+
+li {
+    text-align: center;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene-item {
+    background-color: green;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    transition: all .2s;
+}
+
+.glide__slide--active div {
+    background-color: blue;
+    height: 145px;
+    width: 145px;
+}
+

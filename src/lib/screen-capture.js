@@ -3,6 +3,9 @@ let clearButton = document.querySelector('#clear-button');
 let captureStream = document.querySelector('#capture-stream');
 let captureCanvas = document.querySelector('#capture-canvas')
 let capturePhoto = document.querySelector('#capture-photo');
+let cameraMenu = document.querySelector('.active-menu');
+let snapMenu = document.querySelector('.inactive-menu');
+let cameraTimer = document.querySelector('#camera-timer');
 let width = 0;
 let height = 0;
 
@@ -23,7 +26,8 @@ async function getStream() {
     };
 
     captureCanvas.hidden = true;
-    clearButton.hidden = true;
+    snapMenu.hidden = true;
+    cameraTimer.hidden = true;
 };
 
 function takeSnap() {
@@ -37,38 +41,43 @@ function takeSnap() {
     capturePhoto.src = data;
 
     captureCanvas.hidden = false;
-    clearButton.hidden = false;
+    snapMenu.hidden = false;
+    
+    console.log('snapped')
 };
 
 function clearSnap() {
+    cameraMenu.hidden = false;
     snapButton.hidden = false;
     captureCanvas.hidden = true;
-    clearButton.hidden = true;
+    snapMenu.hidden = true;
 }
 
 function countdown() {
     let timer = 3;
+    cameraTimer.innerHTML = timer;
+    cameraMenu.hidden = true;
+    cameraTimer.hidden = false;
 
     let countdown = setInterval(() => {
         if (timer <= 0) {
             clearInterval(countdown);
             takeSnap();
         } else if (timer <= 0.5) {
+            cameraTimer.hidden = true;
             snapButton.hidden = true;
+            cameraTimer.hidden = true;
         } else {
-            console.log(timer)
+            cameraTimer.innerHTML = timer;
         }
+
         timer -= 0.5;
     }, 500);
 }
 
-snapButton.addEventListener('click', () => {
-    countdown();   
-});
+snapButton.addEventListener('click', countdown);
 
-clearButton.addEventListener('click', () => {
-    clearSnap();
-})
+clearButton.addEventListener('click', clearSnap);
 
 getStream();
 
