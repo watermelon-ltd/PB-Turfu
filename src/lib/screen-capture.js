@@ -1,6 +1,7 @@
 let snapButton = document.querySelector('#snap-button');
 let clearButton = document.querySelector('#clear-button');
 let printButton = document.querySelector('#print-button');
+let capturePreview = document.querySelector('.capture-preview');
 let captureStream = document.querySelector('#capture-stream');
 let captureCanvas = document.querySelector('#capture-canvas')
 let capturePhoto = document.querySelector('#capture-photo');
@@ -26,7 +27,7 @@ async function getStream() {
         height = captureStream.videoHeight;
     };
 
-    captureCanvas.hidden = true;
+    capturePreview.hidden = true;
     snapMenu.hidden = true;
     cameraTimer.hidden = true;
 };
@@ -36,20 +37,22 @@ function takeSnap() {
     captureCanvas.width = width;
     captureCanvas.height = height;
 
+    captureStream.pause();
     context.drawImage(captureStream, 0, 0);
 
     let data = captureCanvas.toDataURL('capture/jpg');
     capturePhoto.src = data;
 
-    captureCanvas.hidden = false;
+    capturePreview.hidden = false;
     snapMenu.hidden = false;
 };
 
 function clearSnap() {
     cameraMenu.hidden = false;
     snapButton.hidden = false;
-    captureCanvas.hidden = true;
+    capturePreview.hidden = true;
     snapMenu.hidden = true;
+    captureStream.play();
 }
 
 function countdown() {
