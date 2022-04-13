@@ -7,3 +7,4 @@
 // import './lib/obs-websocket';
 import './lib/screen-capture';
 import './lib/menu.js';
+import './css/style.css';

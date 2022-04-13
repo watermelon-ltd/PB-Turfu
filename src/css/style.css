@@ -1,6 +1,10 @@
 @import './glide.core.css';
 @import './glide.theme.css';
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
 
 .active-menu {
     position: absolute;
@@ -44,6 +48,10 @@
 }
 
 .capture-preview {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 9999;
     width: 100%;
     height: 100%;
@@ -63,6 +71,10 @@
     text-align: center;
     width: 100%;
     height: 100%;
+    z-index: 9999;
+    position: absolute;
+    top: 0%;
+    left: 0%;
 }
 
 #camera-timer {
