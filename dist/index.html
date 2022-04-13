@@ -4,16 +4,87 @@
 <head>
   <title>PB-Turfu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
-  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  
   <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
 </head>
 
 <body>
 
+  <!-- AR Scene -->
+  <a-scene stats embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;" vr-mode-ui="enabled: false">
+
+    <a-assets>
+      <img id="nuageModel" src="assets/pixelArt/nuage.png">
+      <img id="pigeonModel" src="assets/pixelArt/pigeon.png">
+      <img id="spaceHelmetModel" src="assets/Espace/casque_espace.png">
+      <img id="alienModel" src="assets/Espace/alien_face.png">
+      <img id="pastekabstraitModel" src="assets/Abstrait/PastekAbstrait.png">
+      <img id="casquechatModel" src="assets/Retrofuturist/casque_chat.png">
+      <img id="casquemotoModel" src="assets/Retrofuturist/casque_moto.png">
+      <img id="donutModel" src="assets/Sucrerie/donut.png">
+      <img id="sucetteModel" src="assets/Sucrerie/sucette_2.png">
+    </a-assets>
+
+    <!-- nuage -->    
+    <a-marker type="barcode" value="0">
+      <a-image src="#nuageModel" scale="2.5 2.5 2.5">
+      </a-image>
+    </a-marker>
+
+    <!-- pigeon -->    
+    <a-marker type="barcode" value="1">
+      <a-image src="#pigeonModel" scale="2 2 2">
+      </a-image>
+    </a-marker>
+
+    <!-- space helmet -->
+    <a-marker type="barcode" value="2">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#spaceHelmetModel" >
+      </a-image>
+    </a-marker>
+
+    <!-- alien -->
+    <a-marker type="barcode" value="3">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#alienModel" >
+      </a-image>
+    </a-marker>
+
+    <!-- abstrait --> 
+    <a-marker type="barcode" value="4">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#pastekabstraitModel" >
+      </a-image>
+    </a-marker>
+
+    <!-- chat -->    
+    <a-marker type="barcode" value="5">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquechatModel" >
+      </a-image>
+    </a-marker>
+ 
+    <!-- moto -->    
+    <a-marker type="barcode" value="6">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquemotoModel" >
+      </a-image>
+    </a-marker>
+
+    <!-- donut -->    
+    <a-marker type="barcode" value="7">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#donutModel" >
+      </a-image>
+    </a-marker>
+
+    <!-- sucette -->
+    <a-marker type="barcode" value="8">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#sucetteModel" >
+      </a-image>
+    </a-marker>
+  </a-scene>
+
+  
   <div class="timer">
     <p id="camera-timer">Timer</p>
   </div>
@@ -65,99 +136,7 @@
     </canvas>
   </div>
 
-
-  <!-- AR Scene -->
-  <a-scene astats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 10" color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false">
-    <a-assets>
-
-      <img id="nuageModel" src="assets/pixelArt/nuage.png">
-      <img id="pigeonModel" src="assets/pixelArt/pigeon.png">
-      <img id="spaceHelmetModel" src="assets/Espace/casque_espace.png">
-      <img id="alienModel" src="assets/Espace/alien_face.png">
-      <img id="pastekabstraitModel" src="assets/Abstrait/PastekAbstrait.png">
-      <img id="casquechatModel" src="assets/Retrofuturist/casque_chat.png">
-      <img id="casquemotoModel" src="assets/Retrofuturist/casque_moto.png">
-      <img id="donutModel" src="assets/Sucrerie/donut.png">
-      <img id="sucetteModel" src="assets/Sucrerie/sucette_2.png">
-    </a-assets>
-
-
-
-
-    <!-- nuage -->
-    <a-entity id="target1" mindar-image-target="targetIndex: 0">
-      <a-image src="#nuageModel" scale="2.5 2.5 2.5">
-      </a-image>
-    </a-entity>
-
-    <!-- pigeon -->
-    <a-entity mindar-image-target="targetIndex: 1">
-      <a-image src="#pigeonModel" scale="2 2 2">
-      </a-image>
-    </a-entity>
-
-    <!-- space helmet -->
-    <a-entity mindar-image-target="targetIndex: 2">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#spaceHelmetModel">
-      </a-image>
-    </a-entity>
-
-    <!-- alien -->
-    <a-entity mindar-image-target="targetIndex: 3">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#alienModel">
-      </a-image>
-    </a-entity>
-
-    <!-- abstrait -->
-    <a-entity mindar-image-target="targetIndex: 4">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#pastekabstraitModel">
-      </a-image>
-    </a-entity>
-
-    <!-- chat -->
-    <a-entity mindar-image-target="targetIndex: 5">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquechatModel">
-      </a-image>
-    </a-entity>
-
-    <!-- moto -->
-    <a-entity mindar-image-target="targetIndex: 6">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquemotoModel">
-      </a-image>
-    </a-entity>
-
-    <!-- donut -->
-    <a-entity mindar-image-target="targetIndex: 7">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#donutModel">
-      </a-image>
-    </a-entity>
-
-    <!-- sucette -->
-    <a-entity mindar-image-target="targetIndex: 8">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#sucetteModel">
-      </a-image>
-    </a-entity>
-
-
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-  </a-scene>
-
-
   <script src="bundle.js"></script>
-  <script>
-    const exampleTarget = document.querySelector('#target1');
-    exampleTarget.addEventListener("targetFound", event => {
-      console.log("target found");
-    });
-
-    // detect target lost
-    exampleTarget.addEventListener("targetLost", event => {
-      console.log("target lost");
-    });
-  </script>
 </body>
 
 </html>
