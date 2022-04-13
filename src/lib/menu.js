@@ -32,6 +32,10 @@ let carousel = new Glide('.glide', {
     gap: 50,
 });
 
+carousel.on('build.after', () => {
+    buttonActive(0);
+})
+
 carousel.mount();
 
 
@@ -41,13 +45,8 @@ function buttonActive(i) {
     active.addEventListener('click', handleClick);
 };
 
-function buttonInactive() {
-    let inactive = document.getElementsByClassName('glide__slide');
-    for (let el of inactive) {
-        el.removeEventListener('click', handleClick);
-    }
-}
-
-function handleClick(evt) {
-    console.log(evt)
+function handleClick() {
+    let snapButton = document.querySelector('#snap-button');
+    let clickEvent = new Event('click');
+    snapButton.dispatchEvent(clickEvent);
 }

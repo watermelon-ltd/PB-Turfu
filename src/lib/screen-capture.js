@@ -1,5 +1,6 @@
 let snapButton = document.querySelector('#snap-button');
 let clearButton = document.querySelector('#clear-button');
+let printButton = document.querySelector('#print-button');
 let captureStream = document.querySelector('#capture-stream');
 let captureCanvas = document.querySelector('#capture-canvas')
 let capturePhoto = document.querySelector('#capture-photo');
@@ -42,8 +43,6 @@ function takeSnap() {
 
     captureCanvas.hidden = false;
     snapMenu.hidden = false;
-    
-    console.log('snapped')
 };
 
 function clearSnap() {
@@ -75,9 +74,15 @@ function countdown() {
     }, 500);
 }
 
+function print() {
+    window.print();
+}
+
 snapButton.addEventListener('click', countdown);
 
 clearButton.addEventListener('click', clearSnap);
+
+printButton.addEventListener('click', print);
 
 getStream();
 

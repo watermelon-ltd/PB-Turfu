@@ -19,8 +19,15 @@
   </div>
 
   <div class="inactive-menu">
-    <button id="clear-button" style="z-index: 9999;">Clear</button>
-    <button id="print-button">Print</button>
+    <div class="inactive-buttons">
+      <button id="clear-button">Clear</button>
+      <button id="print-button">Print</button>
+    </div>
+  </div>
+
+  <div class="print-element">
+    <img id="logo-msap" src="assets/Print/logo-msap.png" alt="logo-msap">
+    <img id="logo-heig" src="assets/Print/logo-heig.png" alt="logo-heig">
   </div>
 
   <div class="active-menu">
@@ -30,19 +37,19 @@
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
             <li class="glide__slide">
-              <div id="scene-item-0" class="scene-item"><button>Picto</button></div>
+              <div id="scene-item-0" class="scene-item"></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-1" class="scene-item"><button>Picto</button></div>
+              <div id="scene-item-1" class="scene-item"></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-2" class="scene-item"><button>Picto</button></div>
+              <div id="scene-item-2" class="scene-item"></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-3" class="scene-item"><button>Picto</button></div>
+              <div id="scene-item-3" class="scene-item"></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-4" class="scene-item"><button>Picto</button></div>
+              <div id="scene-item-4" class="scene-item"></div>
             </li>
           </ul>
         </div>
@@ -51,7 +58,7 @@
   </div>
 
   <div class="capture-preview">
-    <video id="capture-stream" style="visibility: hidden; position: absolute; top: 0%; left: 0%;">Stream
+    <video id="capture-stream">Stream
       Unavailable</video>
     <canvas id="capture-canvas" style="position: absolute; top: 0%; left: 0%;">
       <img id="capture-photo" alt="Please make a screen capture">
@@ -60,11 +67,11 @@
 
 
   <!-- AR Scene -->
-  <a-scene stats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 10" color-space="sRGB"
+  <a-scene astats mindar-image="imageTargetSrc: assets/targets.mind; maxTrack: 10" color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-assets>
-      
+
       <img id="nuageModel" src="assets/pixelArt/nuage.png">
       <img id="pigeonModel" src="assets/pixelArt/pigeon.png">
       <img id="spaceHelmetModel" src="assets/Espace/casque_espace.png">
@@ -77,7 +84,7 @@
     </a-assets>
 
 
-  
+
 
     <!-- nuage -->
     <a-entity id="target1" mindar-image-target="targetIndex: 0">
@@ -93,43 +100,43 @@
 
     <!-- space helmet -->
     <a-entity mindar-image-target="targetIndex: 2">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#spaceHelmetModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#spaceHelmetModel">
       </a-image>
     </a-entity>
 
     <!-- alien -->
     <a-entity mindar-image-target="targetIndex: 3">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#alienModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#alienModel">
       </a-image>
     </a-entity>
 
     <!-- abstrait -->
     <a-entity mindar-image-target="targetIndex: 4">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#pastekabstraitModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#pastekabstraitModel">
       </a-image>
     </a-entity>
 
     <!-- chat -->
     <a-entity mindar-image-target="targetIndex: 5">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquechatModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquechatModel">
       </a-image>
     </a-entity>
- 
+
     <!-- moto -->
     <a-entity mindar-image-target="targetIndex: 6">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquemotoModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquemotoModel">
       </a-image>
     </a-entity>
 
     <!-- donut -->
     <a-entity mindar-image-target="targetIndex: 7">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#donutModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#donutModel">
       </a-image>
     </a-entity>
 
     <!-- sucette -->
     <a-entity mindar-image-target="targetIndex: 8">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#sucetteModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#sucetteModel">
       </a-image>
     </a-entity>
 
@@ -142,14 +149,14 @@
   <script src="bundle.js"></script>
   <script>
     const exampleTarget = document.querySelector('#target1');
-      exampleTarget.addEventListener("targetFound", event => {
-        console.log("target found");
-      });
+    exampleTarget.addEventListener("targetFound", event => {
+      console.log("target found");
+    });
 
-      // detect target lost
-      exampleTarget.addEventListener("targetLost", event => {
-        console.log("target lost");
-      });
+    // detect target lost
+    exampleTarget.addEventListener("targetLost", event => {
+      console.log("target lost");
+    });
   </script>
 </body>
 
