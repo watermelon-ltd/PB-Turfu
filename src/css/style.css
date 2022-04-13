@@ -134,7 +134,7 @@ li {
     #capture-canvas {
         width: 80%;
         height: 70%;
-        margin-top: 10%;
+        margin-top: 11%;
         margin-left: 15%;
     }
 
@@ -148,8 +148,8 @@ li {
 
     #logo-msap {
         visibility: visible;
-        margin-left: 2.5%;
-        margin-top: 2.5%;
+        margin-left: 3%;
+        margin-top: 3%;
         top: 0%;
         width: 10%;
         height: auto;
@@ -157,8 +157,8 @@ li {
 
     #logo-heig {
         visibility: visible;
-        margin-left: 2.5%;
-        top: 87.5%;
+        margin-left: 3.5%;
+        top: 84%;
         width: 10%;
         height: 10%;
     }
