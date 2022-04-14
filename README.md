@@ -1,4 +1,4 @@
-# Photoverse
+# ProjInt - Photoverse
 
 Student project by 3rd year [Media Engineering](https://heig-vd.ch/en/education/bachelors-degree-program/media-engineering) students at [HEIG-VD](https://heig-vd.ch/).
 
@@ -6,7 +6,7 @@ The Photobooth of the Future, a project for the [Swiss Camera Museum](https://ww
 
 ## Getting Started
 
-In order to run this project locally ensure that you have [OBS](https://obsproject.com/) and [OBS-Websocket]([obs-websocket - Remote-control OBS Studio from WebSockets | OBS Forums](https://obsproject.com/forum/resources/obs-websocket-remote-control-obs-studio-from-websockets.466/)) installed. When you open OBS you should be prompted with the OBS-Websocket settings, configure as follows :
+In order to run this project locally ensure that you have [OBS](https://obsproject.com/) and [OBS-Websocket](https://obsproject.com/forum/resources/obs-websocket-remote-control-obs-studio-from-websockets.466/) installed. When you open OBS you should be prompted with the OBS-Websocket settings, configure as follows :
 
 - Enable WebSockets server 
 
@@ -20,7 +20,7 @@ Add your webcam or external camera as source and enable a chromakey filter on it
 
 ## Running the project
 
-In order to run the project ensure that you have [Node]([Download | Node.js](https://nodejs.org/en/download/)) and [Git]([Git - Downloading Package](https://git-scm.com/download/win)).  To run the project locally you will need live-server, install it by running :
+In order to run the project ensure that you have [Node](https://nodejs.org/en/download/) and [Git](https://git-scm.com/download/win).  To run the project locally you will need live-server, install it by running :
 
 `npm install live-server -g` 
 
