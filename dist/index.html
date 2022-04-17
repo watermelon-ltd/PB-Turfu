@@ -14,8 +14,10 @@
 
 <body>
 
-  <!-- AR Scene -->
-  <a-scene stats embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;" vr-mode-ui="enabled: false">
+  <!-- AR Scene 
+  replace deviceID with local deviceId found with navigator.mediaDevices.enumerateDevices();
+  -->
+  <a-scene stats embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; deviceId: ba456c1800c092a5a80e8faadae049122b77d73f9320eb7311240fdb2b3d7375;" vr-mode-ui="enabled: false">
 
     <a-assets>
       <img id="nuageModel" src="assets/pixelArt/nuage.png">
@@ -73,7 +75,7 @@
 
     <!-- donut -->    
     <a-marker type="barcode" value="7">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#donutModel" >
+      <a-image rotation="-50 105 -72 " position="0 0 0" scale="3 3 3" src="#donutModel" >
       </a-image>
     </a-marker>
 
@@ -137,6 +139,7 @@
   </div>
 
   <script src="bundle.js"></script>
+ 
 </body>
 
 </html>
