@@ -1,21 +1,29 @@
 @import './glide.core.css';
 @import './glide.theme.css';
 
+:root {
+    --main-purple: #2A0E92;
+    --main-yellow: #F0D001;
+}
+
 html,
 body {
     height: 100%;
+    position: relative;
+    min-width: 100vw;
+    min-height: 100vh;
     overflow: hidden;
 }
 
 .active-menu {
     position: absolute;
     z-index: 9999;
-    top: 80%;
+    top: 75%;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 70%;
     height: 20%;
 }
 
@@ -39,13 +47,26 @@ body {
 }
 
 .inactive-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
     width: 50%;
     height: 100%;
-    background-color: #7A36F4;
+    background-color: var(--main-purple);
     border-radius: 100px;
     margin: 20px;
     font-size: 4em;
-    color: #F0D001;
+    color: var(--main-yellow);
+}
+
+.inactive-buttons button img {
+    height: 70%;
+}
+
+.inactive-buttons button p {
+    margin: 0;
+    height: 80%;
 }
 
 .capture-preview {
@@ -62,6 +83,14 @@ body {
     left: 0%;
 }
 
+#capture-canvas {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+}
+
 .timer {
     display: flex;
     align-items: center;
@@ -75,18 +104,24 @@ body {
     left: 0%;
 }
 
+.timer-container {
+    display: flex;
+    justify-content: center;
+}
+
 #camera-timer {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 8em;
-    color: white;
+    font-size: 12em;
+    color: black;
+    border-radius: 50%;
+    width: 25rem;
+    height: 25rem;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 2rem;
+    line-height: 25rem;
 }
-
-.glide {
-    height: 5%;
-}
-
-
 
 ul {
     display: flex;
@@ -102,17 +137,32 @@ li {
 }
 
 .scene-item {
-    background-color: #2A0E92;
+    background-color: var(--main-purple);
+    margin: 15%;
     height: 120px;
     width: 120px;
     border-radius: 50%;
     transition: all .2s;
-    filter: drop-shadow(5px 5px 3px black)
+    filter: drop-shadow(3px 3px 5px black)
+}
+
+.scene-item img {
+    padding-top: 5px;
+}
+
+.scene-icon {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
 }
 
 .glide__slide--active div {
     height: 145px;
     width: 145px;
+    outline-style: solid;
+    outline-color: white;
+    outline-offset: 1rem;
+    outline-width: .5rem;
 }
 
 #snap-button {

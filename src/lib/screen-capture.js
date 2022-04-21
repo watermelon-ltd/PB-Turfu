@@ -56,7 +56,7 @@ function clearSnap() {
 }
 
 function countdown() {
-    let timer = 3;
+    let timer = 5;
     cameraTimer.innerHTML = timer;
     cameraMenu.hidden = true;
     cameraTimer.hidden = false;
@@ -70,7 +70,7 @@ function countdown() {
             snapButton.hidden = true;
             cameraTimer.hidden = true;
         } else {
-            cameraTimer.innerHTML = timer;
+            cameraTimer.innerHTML = Math.round(timer);
         }
 
         timer -= 0.5;

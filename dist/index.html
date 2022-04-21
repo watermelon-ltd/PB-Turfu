@@ -7,7 +7,7 @@
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  
+
   <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
   <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
 </head>
@@ -17,7 +17,9 @@
   <!-- AR Scene 
   replace deviceID with local deviceId found with navigator.mediaDevices.enumerateDevices();
   -->
-  <a-scene stats embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; deviceId: ba456c1800c092a5a80e8faadae049122b77d73f9320eb7311240fdb2b3d7375;" vr-mode-ui="enabled: false">
+  <a-scene stats embedded
+    arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; deviceId: ba456c1800c092a5a80e8faadae049122b77d73f9320eb7311240fdb2b3d7375;"
+    vr-mode-ui="enabled: false">
 
     <a-assets>
       <img id="nuageModel" src="assets/pixelArt/nuage.png">
@@ -31,13 +33,13 @@
       <img id="sucetteModel" src="assets/Sucrerie/sucette_2.png">
     </a-assets>
 
-    <!-- nuage -->    
+    <!-- nuage -->
     <a-marker type="barcode" value="0">
       <a-image src="#nuageModel" scale="2.5 2.5 2.5">
       </a-image>
     </a-marker>
 
-    <!-- pigeon -->    
+    <!-- pigeon -->
     <a-marker type="barcode" value="1">
       <a-image src="#pigeonModel" scale="2 2 2">
       </a-image>
@@ -45,63 +47,68 @@
 
     <!-- space helmet -->
     <a-marker type="barcode" value="2">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#spaceHelmetModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#spaceHelmetModel">
       </a-image>
     </a-marker>
 
     <!-- alien -->
     <a-marker type="barcode" value="3">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#alienModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#alienModel">
       </a-image>
     </a-marker>
 
-    <!-- abstrait --> 
+    <!-- abstrait -->
     <a-marker type="barcode" value="4">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#pastekabstraitModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#pastekabstraitModel">
       </a-image>
     </a-marker>
 
-    <!-- chat -->    
+    <!-- chat -->
     <a-marker type="barcode" value="5">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquechatModel" >
-      </a-image>
-    </a-marker>
- 
-    <!-- moto -->    
-    <a-marker type="barcode" value="6">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquemotoModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquechatModel">
       </a-image>
     </a-marker>
 
-    <!-- donut -->    
+    <!-- moto -->
+    <a-marker type="barcode" value="6">
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#casquemotoModel">
+      </a-image>
+    </a-marker>
+
+    <!-- donut -->
     <a-marker type="barcode" value="7">
-      <a-image rotation="-50 105 -72 " position="0 0 0" scale="3 3 3" src="#donutModel" >
+      <a-image rotation="-50 105 -72 " position="0 0 0" scale="3 3 3" src="#donutModel">
       </a-image>
     </a-marker>
 
     <!-- sucette -->
     <a-marker type="barcode" value="8">
-      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#sucetteModel" >
+      <a-image rotation="0 0 0 " position="0 -0.25 0" scale="1 1 1" src="#sucetteModel">
       </a-image>
     </a-marker>
   </a-scene>
 
-  
+
   <div class="timer">
-    <p id="camera-timer">Timer</p>
+    <div class="timer-container">
+      <p id="camera-timer">Timer</p>
+    </div>
   </div>
 
   <div class="inactive-menu">
     <div class="inactive-buttons">
-      <button id="clear-button">Clear</button>
-      <button id="print-button">Print</button>
+      <button id="clear-button">
+        <img src="./assets/icons/icon-refresh.svg" alt="refresh">
+        <p>Retry</p>
+      </button>
+      <button id="print-button">
+        <img src="./assets/icons/icon-printer.svg" alt="print">
+        <p>Print</p>
+      </button>
     </div>
   </div>
 
-  <div class="print-element">
-    <img id="logo-msap" src="assets/Print/logo-msap.png" alt="logo-msap">
-    <img id="logo-heig" src="assets/Print/logo-heig.png" alt="logo-heig">
-  </div>
+
 
   <div class="active-menu">
     <button id="snap-button">Snap</button>
@@ -110,19 +117,24 @@
         <div class="glide__track" data-glide-el="track">
           <ul class="glide__slides">
             <li class="glide__slide">
-              <div id="scene-item-0" class="scene-item"></div>
+              <div id="scene-item-0" class="scene-item"><img class="scene-icon" src="./assets/icons/icon_arbre.png"
+                  alt=""></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-1" class="scene-item"></div>
+              <div id="scene-item-1" class="scene-item"><img class="scene-icon" src="./assets/icons/icon_nuage.png"
+                  alt=""></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-2" class="scene-item"></div>
+              <div id="scene-item-2" class="scene-item"><img class="scene-icon" src="./assets/icons/icon_planete.png"
+                  alt=""></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-3" class="scene-item"></div>
+              <div id="scene-item-3" class="scene-item"><img class="scene-icon" src="./assets/icons/icon_planNeo.png"
+                  alt=""></div>
             </li>
             <li class="glide__slide">
-              <div id="scene-item-4" class="scene-item"></div>
+              <div id="scene-item-4" class="scene-item"><img class="scene-icon" src="./assets/icons/icon_sucette.png"
+                  alt=""></div>
             </li>
           </ul>
         </div>
@@ -138,8 +150,13 @@
     </canvas>
   </div>
 
+  <div class="print-element">
+    <img id="logo-msap" src="assets/Print/logo-msap.png" alt="logo-msap">
+    <img id="logo-heig" src="assets/Print/logo-heig.png" alt="logo-heig">
+  </div>
+
   <script src="bundle.js"></script>
- 
+
 </body>
 
 </html>
