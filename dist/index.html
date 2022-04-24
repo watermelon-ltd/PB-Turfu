@@ -17,6 +17,7 @@
   <!-- AR Scene 
   replace deviceID with local deviceId found with navigator.mediaDevices.enumerateDevices();
   -->
+  <script src="components/stay-flat.js"></script>
   <a-scene stats embedded
     arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; deviceId: ba456c1800c092a5a80e8faadae049122b77d73f9320eb7311240fdb2b3d7375;"
     vr-mode-ui="enabled: false">
@@ -28,91 +29,91 @@
       <img id="alienModel" src="assets/Espace/alien_face.png">
       <img id="pastekabstraitModel" src="assets/Abstrait/PastekAbstrait.png">
       <img id="casquechatModel" src="assets/Retrofuturist/casque_chat.png">
-      <img id="casquemotoModel" src="assets/Retrofuturist/casque_moto.png">
+      <!-- <img id="retrofuturisteModel" src="assets/Retrofuturist/"> -->
       <img id="donutModel" src="assets/Sucrerie/donut.png">
       <img id="sucetteModel" src="assets/Sucrerie/sucette_2.png">
       <img id="chatAbstraitModel" src="assets/Abstrait/chats-yeux.png">
     </a-assets>
 
     <!-- nuage -->
-    <a-marker type="barcode" value="0">
+    <a-marker type="barcode" value="0" stay-flat>
       <a-image src="#nuageModel" 
       scale="4 4 4"
-      rotation="-72 0 0"
+      rotation="0 0 0"
+      position="0 2 0">
+      </a-image>
+    </a-marker>
+   
+    <!-- pigeon -->
+    <a-marker type="barcode" value="1" stay-flat>
+      <a-image src="#pigeonModel" scale="2.5 2.5 2.5"
+      rotation="0 0 0"
       position="0 2 0">
       </a-image>
     </a-marker>
 
-    <!-- pigeon -->
-    <a-marker type="barcode" value="1">
-      <a-image src="#pigeonModel" scale="2.5 2.5 2.5"
-      rotation="-80 0 0"
-      position="0 6 0">
-      </a-image>
-    </a-marker>
-
     <!-- space helmet -->
-    <a-marker type="barcode" value="2">
+    <a-marker type="barcode" value="2" stay-flat>
       <a-image 
       src="#spaceHelmetModel"
-      rotation="-80 0 0 " 
-      position="0 5 0" 
+      rotation="0 0 0 " 
+      position="0 2 0" 
       scale="4 4 4" >
       </a-image>
     </a-marker>
 
     <!-- alien -->
-    <a-marker type="barcode" value="3">
+    <a-marker type="barcode" value="3" stay-flat>
       <a-image 
       src="#alienModel"
-      rotation="-80 0 0 " 
-      position="0 5 0" 
+      rotation="0 0 0 " 
+      position="0 2 0" 
       scale="4 4 4" 
       >
       </a-image>
     </a-marker>
 
     <!-- abstrait -->
-    <a-marker type="barcode" value="4">
+    <a-marker type="barcode" value="4" stay-flat>
       <a-image 
-      rotation="-80 0 0 " 
-      position="0 5 0" 
+      rotation="0 0 0 " 
+      position="0 2 0" 
       scale="3 3 3" 
       src="#pastekabstraitModel">
       </a-image>
     </a-marker>
 
     <!-- chat-casque -->
-    <a-marker type="barcode" value="5">
+    <a-marker type="barcode" value="5" stay-flat>
       <a-image 
-      rotation="-80 0 0 " 
-      position="0 5 0" 
+      rotation="0 0 0 " 
+      position="0 2 0" 
       scale="3 3 3" 
       src="#casquechatModel">
       </a-image>
     </a-marker>
 
-    <!-- moto -->
-    <a-marker type="barcode" value="6">
-      <a-image rotation="-80 0 0 " position="0 5 0" scale="3 3 3" src="#casquemotoModel">
+    <!-- visage retrofuturiste -->
+    <!-- <a-marker type="barcode" value="6" stay-flat>
+      <a-image rotation="0 0 0 " position="0 2 0" scale="3 3 3" src="#retrofuturisteModel">
       </a-image>
-    </a-marker>
+    </a-marker> -->
 
     <!-- donut -->
-    <a-marker type="barcode" value="7">
-      <a-image rotation="-80 0 0" position="0 5 0" scale="3 3 3" src="#donutModel">
+    <a-marker type="barcode" value="7" stay-flat>
+      <a-image rotation="0 0 0" position="0 2 0" scale="3 3 3" src="#donutModel">
       </a-image>
     </a-marker>
 
     <!-- sucette -->
-    <a-marker type="barcode" value="8">
-      <a-image rotation="-80 0 0 " position="0 5 0" scale="3 3 3" src="#sucetteModel">
+    <a-marker type="barcode" value="8" stay-flat>
+      <a-image rotation="0 0 0 " position="0 2 0" scale="3 3 3" src="#sucetteModel">
       </a-image>
     </a-marker>
   
     <!-- chat-yeux -->
-    <a-marker type="barcode" value="9">
-      <a-image rotation="-80 0 0 " position="0 5 0" scale="2 2 2" src="#chatAbstraitModel">
+    <a-marker type="barcode" value="9" stay-flat>
+      <a-image rotation="0 0 0 " position="0 2 0" scale="2 2 2" src="#chatAbstraitModel">
       </a-image>
     </a-marker>
   </a-scene>

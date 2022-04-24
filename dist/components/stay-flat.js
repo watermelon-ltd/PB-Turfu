@@ -1,7 +1,6 @@
 AFRAME.registerComponent('stay-flat', {
     init: function () {
-        console.log(this.el.object3D)
-        console.log("flllllllllllllllllllllllllllllllllllllllat")
+       
     },
     remove: function () {
   
@@ -13,6 +12,8 @@ AFRAME.registerComponent('stay-flat', {
         this.el.object3D.rotation.x = 0;
         this.el.object3D.rotation.y = 0;
         this.el.object3D.rotation.z = 0;
+
+        // console.log("x : " + this.el.object3D.rotation.x + "y : " + this.el.object3D.rotation.y + "z : " + this.el.object3D.rotation.z);
 
 
     }
