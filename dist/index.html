@@ -18,9 +18,10 @@
   replace deviceID with local deviceId found with navigator.mediaDevices.enumerateDevices();
   -->
   <script src="components/stay-flat.js"></script>
-  <a-scene stats embedded
-    arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
-    vr-mode-ui="enabled: false">
+  <a-scene embedded
+    arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; deviceId: 1e44379373986d869ffce8e82c7a3dbe5fdee3c7d037263c1e02416b2b253c1a;"
+    vr-mode-ui="enabled: false"
+    >
 
     <a-assets>
       <img id="nuageModel" src="assets/pixelArt/nuage.png">
@@ -45,7 +46,7 @@
     </a-marker>
 
     <!-- pigeon -->
-    <a-marker type="barcode" value="1" stay-flat>
+    <a-marker type="barcode" value="10" stay-flat>
       <a-image src="#pigeonModel" scale="2.5 2.5 2.5"
       rotation="0 0 0"
       position="0 2 0">
@@ -63,7 +64,7 @@
     </a-marker>
 
     <!-- alien -->
-    <a-marker type="barcode" value="3" stay-flat>
+    <a-marker type="barcode" value="12" stay-flat>
       <a-image
       src="#alienModel"
       rotation="0 0 0 "
@@ -84,7 +85,7 @@
     </a-marker>
 
     <!-- chat-casque -->
-    <a-marker type="barcode" value="5" stay-flat>
+    <a-marker type="barcode" value="14" stay-flat>
       <a-image
       rotation="0 0 0 "
       position="0 2 0"
@@ -100,7 +101,7 @@
     </a-marker>
 
     <!-- donut -->
-    <a-marker type="barcode" value="7" stay-flat>
+    <a-marker type="barcode" value="16" stay-flat>
       <a-image rotation="0 0 0" position="0 2 0" scale="3 3 3" src="#donutModel">
       </a-image>
     </a-marker>
@@ -112,7 +113,7 @@
     </a-marker>
 
     <!-- chat-yeux -->
-    <a-marker type="barcode" value="9" stay-flat>
+    <a-marker type="barcode" value="18" stay-flat>
       <a-image rotation="0 0 0 " position="0 2 0" scale="2 2 2" src="#chatAbstraitModel">
       </a-image>
     </a-marker>

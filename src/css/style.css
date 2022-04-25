@@ -88,7 +88,8 @@ body {
     top: 0%;
     left: 0%;
     width: 100vw;
-    height: 100vh;
+    height: 107vh;
+    margin: auto;
 }
 
 .timer {
@@ -139,7 +140,7 @@ li {
 .scene-item {
     background-color: var(--main-purple);
     margin: 15%;
-    height: 15vh;
+    height: 12vh;
     width: 100%;
     border-radius: 50%;
     transition: all .2s;
@@ -157,8 +158,8 @@ li {
 }
 
 .glide__slide--active div {
-    height: 145px;
-    width: 145px;
+    height: 125px;
+    /* width: 145px; */
     outline-style: solid;
     outline-color: white;
     outline-offset: 1rem;
