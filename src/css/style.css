@@ -47,6 +47,9 @@ body {
 }
 
 .inactive-buttons button {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +59,7 @@ body {
     background-color: var(--main-purple);
     border-radius: 100px;
     margin: 20px;
-    font-size: 4em;
+    font-size: 2em;
     color: var(--main-yellow);
 }
 
@@ -66,7 +69,7 @@ body {
 
 .inactive-buttons button p {
     margin: 0;
-    height: 80%;
+    height: auto;
 }
 
 .capture-preview {
