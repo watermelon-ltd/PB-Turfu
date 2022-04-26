@@ -63,7 +63,10 @@ for (let i = 0; i < btns.length; i++) {
         if (carousel.index == currIndex) {
             handleClick();
         } else {
-            carousel.go(`=${currIndex}`)
+            carousel.go(`=${currIndex}`);
+            setTimeout(() => {
+                console.log('delay')
+            }, 500)
         }
 
     })
