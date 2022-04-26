@@ -9,4 +9,4 @@ import './lib/screen-capture';
 import './lib/menu.js';
 import './css/style.css';
 
-document.addEventListener('contextmenu', event = event.preventDefault());
+// document.addEventListener('contextmenu', event = event.preventDefault());
