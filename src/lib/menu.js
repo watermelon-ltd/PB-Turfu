@@ -64,6 +64,9 @@ for (let i = 0; i < btns.length; i++) {
             handleClick();
         } else {
             carousel.go(`=${currIndex}`);
+            obs.send('SetCurrentScene', {
+                'scene-name': scenes[carousel.index]
+            })
             setTimeout(() => {
                 console.log('delay')
             }, 500)
