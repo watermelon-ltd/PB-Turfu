@@ -10,6 +10,7 @@ let snapMenu = document.querySelector('.inactive-menu');
 let cameraTimer = document.querySelector('#camera-timer');
 let width = 0;
 let height = 0;
+let audio = new Audio('./assets/Audio/camera-shutter.mp3');
 
 const displayMediaOptions = { video: true, audio: false };
 
@@ -65,6 +66,7 @@ function countdown() {
         if (timer <= 0) {
             clearInterval(countdown);
             takeSnap();
+            audio.play();
         } else if (timer <= 0.5) {
             cameraTimer.hidden = true;
             snapButton.hidden = true;
